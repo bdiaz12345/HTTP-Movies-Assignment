@@ -1,8 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
 function MovieList({ movies }) {
+  const history = useHistory()
+
+  const goToAdd = () => {
+    history.push('/add-movie')
+  }
   return (
     <div className="movie-list">
       {
@@ -12,6 +17,7 @@ function MovieList({ movies }) {
           </Link>
         ))
       }
+      <button onClick={goToAdd}>Add a Movie</button>
     </div>
   );
 }
